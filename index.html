@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tender Package Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">T</span><span>Tender<span class="brand-accent">Flow</span></span></div>
+    <div class="top-actions">
+      <span class="privacy-note" data-i18n="privacyNote"></span>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="bn">বাংলা</button>
+        <button class="lang-btn active" data-lang="en">English</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow" data-i18n="eyebrow"></div>
+        <h1 data-i18n="headline"></h1>
+        <p data-i18n="subheadline"></p>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"><span>01</span><span>02</span><span>03</span></div>
+    </section>
+
+    <section class="steps" aria-label="Workflow">
+      <div class="step active"><b>01</b><span data-i18n="step1"></span></div>
+      <div class="step"><b>02</b><span data-i18n="step2"></span></div>
+      <div class="step"><b>03</b><span data-i18n="step3"></span></div>
+    </section>
+
+    <div id="notice" class="notice hidden" role="alert"></div>
+
+    <section id="requirements-panel" class="card setup-card">
+      <div class="section-heading">
+        <div><span class="section-kicker">01</span><h2 data-i18n="openRequirements"></h2><p data-i18n="openRequirementsHelp"></p></div>
+        <label class="primary-btn file-btn"><span data-i18n="chooseJson"></span><input id="requirements-input" type="file" accept=".json,application/json"></label>
+      </div>
+      <div id="tender-empty" class="empty-state"><div class="empty-icon">↗</div><p data-i18n="noRequirements"></p></div>
+      <div id="tender-details" class="tender-details hidden"></div>
+    </section>
+
+    <section id="upload-panel" class="card hidden">
+      <div class="section-heading"><div><span class="section-kicker">02</span><h2 data-i18n="uploadMatch"></h2><p data-i18n="uploadHelp"></p></div><div class="file-limit" data-i18n="fileLimit"></div></div>
+      <label id="dropzone" class="dropzone">
+        <input id="pdf-input" type="file" accept="application/pdf,.pdf" multiple>
+        <div class="upload-icon">↑</div><strong data-i18n="dropTitle"></strong><span data-i18n="dropHelp"></span>
+      </label>
+      <div id="upload-errors" class="inline-errors hidden"></div>
+      <div id="files-list" class="files-list"></div>
+    </section>
+
+    <section id="check-panel" class="card hidden">
+      <div class="section-heading requirements-heading">
+        <div><span class="section-kicker">03</span><h2 data-i18n="checkDownload"></h2><p data-i18n="checkHelp"></p></div>
+        <div class="status-summary" id="status-summary"></div>
+      </div>
+      <div id="requirements-list" class="requirements-list"></div>
+      <div class="generate-bar"><div id="blockers" class="blockers"></div><button id="generate-btn" class="generate-btn" disabled><span class="btn-icon">✦</span><span data-i18n="generate"></span></button></div>
+      <div id="generation-status" class="generation-status hidden"></div>
+    </section>
+
+    <footer><span data-i18n="footerPrivacy"></span><span data-i18n="footerLocal"></span></footer>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
